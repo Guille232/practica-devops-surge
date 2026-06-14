@@ -1,0 +1,383 @@
+<!DOCTYPE html><html class="dark" lang="es" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>PELIGRO BUTIQUE | Urban Aggression</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Barlow+Condensed:wght@400;500;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+tailwind.config = {
+darkMode: "class",
+theme: {
+extend: {
+"colors": {
+"on-surface-variant": "#e6bdb6",
+"street-grey": "#222222",
+"inverse-surface": "#e7e2d9",
+"surface": "#14130e",
+"on-background": "#e7e2d9",
+"surface-container-low": "#1d1c16",
+"surface-bright": "#3b3933",
+"on-primary": "#680200",
+"surface-tint": "#ffb4a8",
+"on-error-container": "#ffdad6",
+"on-surface": "#e7e2d9",
+"on-secondary-container": "#b7b4b4",
+"error-container": "#93000a",
+"on-primary-container": "#5b0200",
+"on-tertiary-fixed-variant": "#00497a",
+"asphalt": "#707072",
+"on-tertiary-container": "#002b4c",
+"tertiary-fixed-dim": "#9ccaff",
+"inverse-on-surface": "#32302a",
+"outline": "#ad8882",
+"surface-dim": "#14130e",
+"outline-variant": "#5d403b",
+"tertiary-container": "#3795e5",
+"on-tertiary": "#003256",
+"surface-container-lowest": "#0f0e09",
+"tertiary": "#9ccaff",
+"on-secondary-fixed-variant": "#474646",
+"primary-fixed": "#ffdad4",
+"on-primary-fixed": "#410100",
+"secondary": "#c9c6c5",
+"on-tertiary-fixed": "#001d35",
+"deep-black": "#000000",
+"on-secondary-fixed": "#1c1b1b",
+"surface-container-high": "#2b2a24",
+"on-primary-fixed-variant": "#920400",
+"surface-variant": "#36352f",
+"secondary-fixed": "#e5e2e1",
+"paper": "#f4efe6",
+"primary-fixed-dim": "#ffb4a8",
+"secondary-fixed-dim": "#c9c6c5",
+"primary": "#ffb4a8",
+"secondary-container": "#474646",
+"error": "#ffb4ab",
+"tertiary-fixed": "#d0e4ff",
+"primary-container": "#ff553f",
+"surface-container-highest": "#36352f",
+"surface-container": "#21201a",
+"background": "#14130e",
+"on-error": "#690005",
+"inverse-primary": "#be0d03",
+"on-secondary": "#313030"
+},
+"borderRadius": {
+"DEFAULT": "0.25rem",
+"lg": "0.5rem",
+"xl": "0.75rem",
+"full": "9999px"
+},
+"spacing": {
+"margin-mobile": "20px",
+"base": "8px",
+"margin-desktop": "64px",
+"gutter": "16px",
+"section-gap": "128px"
+},
+"fontFamily": {
+"headline-lg": ["Bebas Neue"],
+"headline-md": ["Bebas Neue"],
+"body-md": ["Barlow Condensed"],
+"label-bold": ["Barlow Condensed"],
+"headline-lg-mobile": ["Bebas Neue"],
+"display-xl": ["Bebas Neue"],
+"body-lg": ["Barlow Condensed"],
+"label-sm": ["Barlow Condensed"]
+},
+"fontSize": {
+"headline-lg": ["64px", {"lineHeight": "60px", "letterSpacing": "0.02em", "fontWeight": "700"}],
+"headline-md": ["32px", {"lineHeight": "32px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+"body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+"label-bold": ["14px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "700"}],
+"headline-lg-mobile": ["48px", {"lineHeight": "44px", "fontWeight": "700"}],
+"display-xl": ["96px", {"lineHeight": "96px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+"body-lg": ["20px", {"lineHeight": "28px", "fontWeight": "400"}],
+"label-sm": ["12px", {"lineHeight": "14px", "fontWeight": "500"}]
+}
+},
+},
+}
+</script>
+<style>
+body {
+background-color: #14130e;
+color: #e7e2d9;
+cursor: none;
+}
+.custom-cursor {
+width: 20px;
+height: 20px;
+background-color: #ff553f;
+border-radius: 50%;
+position: fixed;
+pointer-events: none;
+z-index: 9999;
+mix-blend-mode: difference;
+transition: transform 0.1s ease;
+}
+.ticker-wrap {
+width: 100%;
+overflow: hidden;
+background-color: #000;
+border-bottom: 2px solid #707072;
+}
+.ticker {
+display: inline-block;
+white-space: nowrap;
+animation: ticker 20s linear infinite;
+}
+@keyframes ticker {
+0% { transform: translateX(100%); }
+100% { transform: translateX(-100%); }
+}
+.urban-outline {
+text-shadow: -1px -1px 0 #707072, 1px -1px 0 #707072, -1px 1px 0 #707072, 1px 1px 0 #707072;
+}
+.material-symbols-outlined {
+font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+.hover-img-zoom:hover img {
+transform: scale(1.05);
+}
+</style>
+</head>
+<body class="font-body-md overflow-x-hidden">
+<div class="custom-cursor hidden md:block" id="cursor" style="width: 20px; height: 20px; background-color: rgb(255, 85, 63); border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; left: 13px; top: 1412px;"></div>
+<!-- TopAppBar -->
+<nav class="sticky top-0 flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 bg-surface/90 backdrop-blur-md border-b border-asphalt dark:border-asphalt z-50">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary cursor-pointer">menu</span>
+<div class="font-headline-md text-headline-md tracking-tighter text-on-surface dark:text-on-surface flex items-center">
+<img alt="Logo" class="h-8 md:h-10 object-contain mr-2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCH3aQOTXnyQp0geHNGDgvnQ_DrYvRlLT0sJn1wZsPLDlaOuQ9AHZm1nU2tFmEYPU2O-I5UwxlMG_6ptpgcRXwgyKwFDaEZO1LSsk7FBoij-2hjvBYJ7LIlOwa3yJttYoDyjD820n2CCGfKd605FVblyLsZXctezXoKjTH6si2uRVxUI_A4Y3lr4_DXJ_SBDYfUxiqwbzZW17gCf_PBFeX3kM_NamTy46fzND7B3lF1fRp1rfMewqvRLNykU7ttzGijjelCPwqdmuGa">
+PELIGROBUTIQUE
+</div>
+</div>
+<div class="hidden md:flex gap-gutter">
+<a class="text-primary font-bold border-b-2 border-primary font-label-bold text-label-bold py-1" href="#">VER TODO</a>
+<a class="text-on-surface dark:text-on-surface hover:text-primary transition-colors duration-200 font-label-bold text-label-bold py-1" href="#">Tenis</a>
+<a class="text-on-surface dark:text-on-surface hover:text-primary transition-colors duration-200 font-label-bold text-label-bold py-1" href="#">Ropa</a>
+<a class="text-on-surface dark:text-on-surface hover:text-primary transition-colors duration-200 font-label-bold text-label-bold py-1" href="#">Catalogo</a>
+</div>
+<button class="bg-primary-container text-on-primary-container px-6 py-2 font-label-bold text-label-bold hover:bg-on-surface hover:text-surface transition-all active:scale-95">CONTACTO</button>
+</nav>
+<!-- Ticker -->
+<div class="ticker-wrap py-3">
+<div class="ticker">
+<span class="font-label-bold text-label-bold tracking-widest text-primary px-4">🔥 NEW DROP DISPONIBLE ★ ENVÍOS A TODO EL PAÍS ★ 100% ORIGINALES ★ 🔥 NEW DROP DISPONIBLE ★ ENVÍOS A TODO EL PAÍS ★ 100% ORIGINALES ★ 🔥 NEW DROP DISPONIBLE ★ ENVÍOS A TODO EL PAÍS ★ 100% ORIGINALES</span>
+</div>
+</div>
+<!-- Hero Section -->
+<section class="relative w-full h-[80vh] bg-deep-black flex items-center overflow-hidden">
+<div class="absolute inset-0 z-0 opacity-60">
+<img alt="Main Campaign" class="w-full h-full object-cover grayscale contrast-125" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB06oYN0Aglhz8Sum6wHpLWfnuj7Sql3gG0FeV7t9WYLNlw8NCGcrgG63MatyVoh0udG-IzeBob5pRWUVysIqgPSDymXAwyGnurBS-Ki4OJ9VQ-3jisDnH98ZrvF2DwDcuZWWeD7CYjILrUZsvxsDBTO6aIW6nBW4Zh5v8lzI0fAbDxxEHLH9ZyUdZk6TWV-ZVmwaPU35enTDnZt8aYXX4RHYb0Skho8KCwfYtfWAIdgzj0hZeA0KTnmecn9pZqzcagRlLfB0Y9mlBN">
+</div>
+<div class="relative z-10 px-margin-mobile md:px-margin-desktop w-full">
+<h1 class="font-display-xl text-display-xl text-primary uppercase leading-none drop-shadow-2xl">
+EL DRIP MÁS<br><span class="text-on-surface urban-outline">PELIGROSO</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface max-w-md mt-6 border-l-4 border-primary pl-4 uppercase tracking-wider">
+Urban Aggression Collection 2024. Curaduría exclusiva de piezas de alto impacto.
+</p>
+<div class="mt-10 flex gap-4">
+<button class="bg-primary-container text-on-primary-container px-10 py-4 font-label-bold text-label-bold text-lg hover:tracking-widest transition-all uppercase">Comprar Ahora</button>
+<button class="border-2 border-on-surface text-on-surface px-10 py-4 font-label-bold text-label-bold text-lg hover:bg-on-surface hover:text-surface transition-all uppercase">Ver Lookbook</button>
+</div>
+</div>
+</section>
+<!-- Ropa Section -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-surface">
+<div class="flex justify-between items-end mb-12 border-b-2 border-asphalt pb-4">
+<div>
+<span class="text-primary font-label-bold text-label-bold tracking-widest uppercase">Selecto</span>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg uppercase">URBAN APPAREL</h2>
+</div>
+<a class="font-label-bold text-label-bold text-on-surface-variant hover:text-primary transition-all" href="#">VER TODO -&gt;</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Item 1 -->
+<div class="group relative bg-street-grey border border-asphalt overflow-hidden hover-img-zoom">
+<div class="aspect-[4/5] relative">
+<img alt="Rugby Polo BSTV" class="w-full h-full object-cover transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4fy4kIoRKKghA_s4Oap1hdIP9Dg4xPdUpiRvmHLxHL93EM7b3d18jUkOtXYJdceap5jPvPeG0hn2APMl4DpGR_hgm7S6IDvU9rUHGA_vZpHQFsIefUeYmGCn1czh_Qwc5f6TlRnYK_fvT61vx53vNHrc83QPVNP75Ot7bR17h6BzCmIy8bean8je3c0urQlMFAEuM_WOa72EEOGaxbSC8nxoDTM6K6HQRXyGBLmxgrWCsQNDqDIgTzmR9LfzGd9E1PFeGYrnpt7z7">
+<div class="absolute top-4 right-4 bg-primary-container text-on-primary-container px-3 py-1 font-label-bold text-label-sm">NUEVO</div>
+</div>
+<div class="p-6">
+<h3 class="font-label-bold text-xl uppercase mb-1">Rugby Polo BSTV</h3>
+<p class="text-primary font-label-bold">RD$ 3,500</p>
+<a href="https://wa.me/peligro?text=Hola!%20Me%20interesa%20este%20producto:%20Rugby%20Polo%20BSTV" class="w-full block text-center mt-4 border border-on-surface py-2 font-label-bold text-label-sm hover:bg-on-surface hover:text-surface transition-colors uppercase">LO QUIERO</a>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="group relative bg-street-grey border border-asphalt overflow-hidden hover-img-zoom">
+<div class="aspect-[4/5] relative">
+<img alt="Majestik Skull Polo" class="w-full h-full object-cover transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuArC27U45chL-mnwTPd0ohYUBA-aCkiIVmX7QEuUVooHhTp_sEhQtUMb2BmRs5c7Ah4POapGcBNiiRvwgt1iyal1OhYoyuV92URmg3Ua435Kp8v5mlx-SN4EiLktS9Yl3dsy9InpWZhvdrsY1RB6_CZFkhfqm6JrmApHqGloTCq7MEv2RkCe_K5V50IZczsIkbV9KmadYIksetvt_t9jPMhYDXjcehNFhmrkr7nsHg1-S2Joqj04fzjiWGNAAgxgxJPFp7KBlNdE_TN">
+</div>
+<div class="p-6">
+<h3 class="font-label-bold text-xl uppercase mb-1">Majestik Skull Polo</h3>
+<p class="text-primary font-label-bold">RD$ 4,200</p>
+<a href="https://wa.me/peligro?text=Hola!%20Me%20interesa%20este%20producto:%20Majestik%20Skull%20Polo" class="w-full block text-center mt-4 border border-on-surface py-2 font-label-bold text-label-sm hover:bg-on-surface hover:text-surface transition-colors uppercase">LO QUIERO</a>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="group relative bg-street-grey border border-asphalt overflow-hidden hover-img-zoom">
+<div class="aspect-[4/5] relative">
+<img alt="Majestik Pink Drop" class="w-full h-full object-cover transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_Znyd1j33c7HLo-oSu5lnaDT2C10F4nlK8Htz6oqBZI1KoPQ2DQJ0r-4sOZGSwIIqQsO_meKxQGiO3NRdfjaeX1pJu2TkByAe-rKFT1Sei0HGZqDNVuDm5pALyHJehK_1mfHFUM-NH9pX4ZKxgLMet-qCtxADLUzN-_xD1CIkO_g6B02OWwiqRlhpTw6g6dZjEyR3LMFmmfrsrOH9ktThLLfM9gkEhFSkTVvIrWvBnI_wcfOL18E5FOmbItd18HPSRWhuoyzJzSsN">
+</div>
+<div class="p-6">
+<h3 class="font-label-bold text-xl uppercase mb-1">Majestik Pink Drop</h3>
+<p class="text-primary font-label-bold">RD$ 2,800</p>
+<a href="https://wa.me/peligro?text=Hola!%20Me%20interesa%20este%20producto:%20Majestik%20Pink%20Drop" class="w-full block text-center mt-4 border border-on-surface py-2 font-label-bold text-label-sm hover:bg-on-surface hover:text-surface transition-colors uppercase">LO QUIERO</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Tenis Section - Masonry-like Grid -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-deep-black">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16">
+<div>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg uppercase leading-none">THE KICKS<br><span class="text-primary">VAULT</span></h2>
+</div>
+<p class="font-body-md text-on-surface-variant max-w-sm mt-4 md:mt-0">Autenticidad garantizada. Los modelos más buscados del streetwear global seleccionados para la calle.</p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-gutter">
+<!-- Jordan 12 Low -->
+<div class="col-span-2 group relative border-2 border-asphalt hover:border-primary transition-colors overflow-hidden">
+<div class="aspect-video relative">
+<img alt="Jordan 12 Low" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnoZmlaeUvnLGECyEuZvvj3nVP0nbjqSMdPigKcNRiRgBQ2msL5n7Yi1H6sSuIHVB3_ohlBHDJfIB4p2eMI3vcrPlv3usUKd3GgD3VKiyt2Ickka_lQtTCFDzVNyR-8u52uxrSOMdYkJP4tbcQHruV4oPYjQaiAPGTFNb41o3QTcPDY4tXMTeGIA9NBu_IIWQp3H22djGQzhPtCbWuNIhek7mPGdUnNMZxiEkfmRGtszuV_0Jay0aR5TkboHETbl4VlJdJI2oFHVPM">
+<div class="absolute inset-0 bg-gradient-to-t from-deep-black/80 to-transparent"></div>
+<div class="absolute bottom-6 left-6">
+<h4 class="font-headline-md text-headline-md uppercase text-on-surface">Jordan 12 Low</h4>
+<span class="bg-primary px-3 py-1 font-label-bold text-surface text-label-sm">AGOTADO</span>
+</div>
+</div>
+</div>
+<!-- Jordan 4 Stealth -->
+<div class="col-span-2 group relative border-2 border-asphalt hover:border-primary transition-colors overflow-hidden">
+<div class="aspect-video relative">
+<img alt="Jordan 4 Stealth" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBarsRCngfkxCBrg7n5CrwJjv6H4IyXqRXmBosNH2sWTYTtES6Cb-F44Z2Vg4VfQPPp6oMgpEVl7FFh7p16d6o5UQr_srQ2R7ThT4KWEgFuNK_jiie1jsGAf3-MsZtbMYhMlLcJcS8PTpwV0K5-Nno_gVR3YnY6rZraQUbtdQLO1gzFOmwOHW9tr6N2gfk35Dppvuv_v6oSs_qvxU2z9MIryvx_6CJrzfdtPYF1NoXe6ZScMR4YhNEMfdUBGAIlO8VBJeiXV7dxOCGw">
+<div class="absolute inset-0 bg-gradient-to-t from-deep-black/80 to-transparent"></div>
+<div class="absolute bottom-6 left-6">
+<h4 class="font-headline-md text-headline-md uppercase text-on-surface">Jordan 4 Stealth</h4>
+<span class="text-primary font-label-bold text-xl">CONSULTAR PRECIO</span>
+</div>
+</div>
+</div>
+<!-- Jordan 4 Ice Blue -->
+<div class="col-span-2 group relative bg-street-grey border border-asphalt overflow-hidden">
+<img alt="Jordan 4 Ice Blue" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuARE3oWVqi_ZtFnBrt_R5ayWjet-BLAyuDcWIK31W0tWrosCiC2PZF1-QJbaDrylRirKh8noLaiv5RsUZEg560F3kQC2kXMZOCiSLN7U_JC27QDOgZJPmO7gcaYKuWpDN2VzAo0_rkStSxeh7LhWzUaoD71eiinh9eocWHijQviBQoL3BeJfs6trQhNIblnxA8LaBlgAKdX7dOz9MmXYZ8LGmioyVVk3AsHKbMTlJzRkrBCpYJGD-U6fVj-bJbhFHe-d3k4ySQk6IAa">
+<div class="p-4 bg-surface-container flex justify-between items-center"><a href="https://wa.me/peligro?text=Hola!%20Me%20interesa%20este%20producto:%20J4%20Ice%20Blue" class="flex justify-between items-center w-full">
+<span class="font-label-bold uppercase">J4 Ice Blue</span>
+<span class="font-label-bold text-primary">LO QUIERO</span>
+</a></div>
+</div>
+<!-- NB 790 Navy -->
+<div class="group relative bg-street-grey border border-asphalt overflow-hidden">
+<img alt="NB 790 Navy" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5iv58c_Y4vShQtFfI_ZKz8Dyuhgr5j6p1dT9zbbSajWDSIMQZq1EKHpHCt8DPYWTftd2IMaF58KIzDrTY3SSsZIgqRfbDXak_nFF28Xm4IBw6rJ9gIbnBPrLAdYRgo4R4zkkqFV2-X0b6fKU5JBaabBCiQ2zZhOKG8rzceA-2PqkF3nWyKD2EV_5AMG-N643V0pH9UHcwK11baGWYLshSL_seniMTNQeU061BIiMQg0efgmP7LH5qDJ3aIBNb4lwrcHsAiIxmtb80"><a href="https://wa.me/peligro?text=Hola!%20Me%20interesa%20este%20producto:%20NB%20790%20Navy" class="absolute inset-0 flex items-center justify-center bg-deep-black/60 opacity-0 hover:opacity-100 transition-opacity font-label-bold text-primary">LO QUIERO</a>
+<div class="p-4 bg-surface-container">
+<span class="font-label-bold uppercase text-label-sm block">NB 790 Navy</span>
+</div>
+</div>
+<!-- NB 990 Cream -->
+<div class="group relative bg-street-grey border border-asphalt overflow-hidden">
+<img alt="NB 990 Cream" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRX8LmnvnC2IIzNj1DbxSr4B2eeR_KsIZ0lEJruWA310evCBRAS2M5kPnRPy-zr6VLq8YCpqvGjF4eekfLBEKB9wirgYIPYU1ZsGJmmFBfE1rZlFigcK0g3tEE-vt4zB8tFzTC3rP9ld1t__VYl_JRSVazxaNjiikP3hz_AftCiXc1JpdRhu9biwwVgnvLgS8wlt4822l6oqwAtudusZFv0mkH_Hcom4iEYPjG7w1t1VLHhxl5dGJyc-Baq1GooV02GDADIKx0zrWA"><a href="https://wa.me/peligro?text=Hola!%20Me%20interesa%20este%20producto:%20NB%20990%20Cream" class="absolute inset-0 flex items-center justify-center bg-deep-black/60 opacity-0 hover:opacity-100 transition-opacity font-label-bold text-primary">LO QUIERO</a>
+<div class="p-4 bg-surface-container">
+<span class="font-label-bold uppercase text-label-sm block">NB 990 Cream</span>
+</div>
+</div>
+<!-- NB 530 White -->
+<a href="https://wa.me/peligro?text=Hola!%20Me%20interesa%20este%20producto:%20NB%20530%20White" class="col-span-2 group relative bg-street-grey border border-asphalt overflow-hidden">
+<img alt="NB 530 White" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVzexZbLGsHvzdvzd0ReENfuVN1T_hA24ACFD3eUw33AbpAd9dOBuqv8Fv1shOAS4jZmWXY1V5Tt45c5ZpOUxywHNvPDBjc978BZ8yQnsn7eiGO-kmfh0NiCzxt_vx52OUTXGMDnb5e5ckdVoJspLDSMX5leWLJ6eAVMFBPlylSEYI67eElQAvWIXCjjTVDHSrmH0IzpWDp_LX4ZYZDbTyIlb_rj8MgWx0Z66WxS4PPOHQeKV5pxyP1ETMwRuMDitOJOGbdJxx-8Iy">
+<div class="absolute inset-0 flex items-center justify-center bg-deep-black/60 opacity-0 group-hover:opacity-100 transition-opacity font-display-xl text-primary">LO QUIERO</div>
+<div class="absolute bottom-4 right-4 font-display-xl text-primary opacity-10">530</div>
+</a>
+</div>
+</section>
+<!-- WhatsApp CTA -->
+<section class="py-20 px-margin-mobile md:px-margin-desktop bg-primary-container text-on-primary-container text-center">
+<h2 class="font-display-xl text-display-xl mb-4">¿BUSCAS ALGO ESPECÍFICO?</h2>
+<p class="font-body-lg text-lg mb-8 max-w-2xl mx-auto uppercase tracking-tighter">Hablamos directamente por WhatsApp. Atención personalizada y búsqueda de modelos bajo pedido.</p>
+<a class="inline-flex items-center gap-4 bg-deep-black text-on-surface px-12 py-5 font-headline-md text-headline-md hover:scale-105 transition-transform" href="https://wa.me/peligro">
+CHAT ON WHATSAPP <span class="material-symbols-outlined">send</span>
+</a>
+</section>
+<!-- Footer -->
+<footer class="w-full py-section-gap px-margin-mobile md:px-margin-desktop flex flex-col md:flex-row justify-between items-start gap-gutter bg-deep-black border-t-2 border-asphalt">
+<div class="max-w-xs">
+<div class="font-headline-lg text-headline-lg text-on-surface mb-6 leading-tight">PELIGRO<br>BUTIQUE</div>
+<p class="text-on-surface-variant font-label-sm">EXCLUSIVIDAD URBANA PARA LOS QUE NO TEMEN DESTACAR.</p>
+</div>
+<div class="flex flex-col gap-4">
+<span class="text-asphalt font-label-bold text-label-sm tracking-widest uppercase">Explorar</span>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-all font-label-bold text-label-bold hover:tracking-widest" href="#">VER TODO</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-all font-label-bold text-label-bold hover:tracking-widest" href="#">SNEAKERS</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-all font-label-bold text-label-bold hover:tracking-widest" href="#">CLOTHING</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-all font-label-bold text-label-bold hover:tracking-widest" href="#">ARCHIVE</a>
+</div>
+<div class="flex flex-col gap-4">
+<span class="text-asphalt font-label-bold text-label-sm tracking-widest uppercase">Ayuda</span>
+<a class="text-on-surface-variant hover:text-primary transition-all font-label-bold text-label-bold" href="#">VER TODO</a>
+<a class="text-on-surface-variant hover:text-primary transition-all font-label-bold text-label-bold" href="#">POLÍTICAS</a>
+<a class="text-on-surface-variant hover:text-primary transition-all font-label-bold text-label-bold" href="#">CONTACTO</a>
+</div>
+<div class="w-full md:w-auto mt-12 md:mt-0 text-right">
+<p class="font-label-sm text-label-sm text-on-surface-variant">© 2024 PELIGROBUTIQUE. URBAN AGGRESSION COLLECTION.</p>
+<div class="flex justify-end gap-6 mt-4">
+<span class="material-symbols-outlined text-primary cursor-pointer hover:scale-110 transition-transform">share</span>
+<span class="material-symbols-outlined text-primary cursor-pointer hover:scale-110 transition-transform">language</span>
+</div>
+</div>
+</footer>
+<script>
+// Custom Cursor Logic
+const cursor = document.getElementById('cursor');
+document.addEventListener('mousemove', (e) => {
+cursor.style.left = e.clientX + 'px';
+cursor.style.top = e.clientY + 'px';
+});
+
+document.addEventListener('mousedown', () => {
+cursor.style.transform = 'scale(1.5)';
+cursor.style.backgroundColor = '#ffffff';
+});
+
+document.addEventListener('mouseup', () => {
+cursor.style.transform = 'scale(1)';
+cursor.style.backgroundColor = '#ff553f';
+});
+
+// Hover effect for cursor
+const interactiveElements = document.querySelectorAll('button, a, .group');
+interactiveElements.forEach(el => {
+el.addEventListener('mouseenter', () => {
+cursor.style.width = '40px';
+cursor.style.height = '40px';
+cursor.style.backgroundColor = 'rgba(255, 85, 63, 0.3)';
+cursor.style.border = '2px solid #ff553f';
+});
+el.addEventListener('mouseleave', () => {
+cursor.style.width = '20px';
+cursor.style.height = '20px';
+cursor.style.backgroundColor = '#ff553f';
+cursor.style.border = 'none';
+});
+});
+
+// Reveal effect on scroll
+const reveal = () => {
+const reveals = document.querySelectorAll('.group, .aspect-video');
+for (let i = 0; i < reveals.length; i++) {
+const windowHeight = window.innerHeight;
+const elementTop = reveals[i].getBoundingClientRect().top;
+const elementVisible = 150;
+if (elementTop < windowHeight - elementVisible) {
+reveals[i].classList.add('opacity-100');
+reveals[i].classList.remove('opacity-0');
+}
+}
+};
+window.addEventListener('scroll', reveal);
+</script>
+
+
+</body></html>

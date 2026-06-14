@@ -1,0 +1,19 @@
+name: Local Web Development Config
+version: 1.0.0
+schema: v1
+
+# Modelos disponibles para el Chat
+models:
+  - title: Qwen Coder 3B (Chat)
+    provider: ollama
+    model: qwen2.5-coder:3b
+
+# Configuración exclusiva para el autocompletado de código
+tabAutocompleteModel:
+  title: Qwen Coder 3B (Auto)
+  provider: ollama
+  model: qwen2.5-coder:3b
+
+# Servidores adicionales (vacío por ahora)
+mcpServers: []
+mcpServers: []
